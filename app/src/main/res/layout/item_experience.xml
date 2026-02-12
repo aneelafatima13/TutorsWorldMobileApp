@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <EditText
+        android:id="@+id/etExpInstitute"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Institute"/>
+
+    <EditText
+        android:id="@+id/etExpStart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Start Date"/>
+
+    <EditText
+        android:id="@+id/etExpEnd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="End Date"/>
+
+    <EditText
+        android:id="@+id/etExpDuration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Duration"/>
+
+    <Button
+        android:id="@+id/btnRemoveExperience"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remove"
+        android:layout_gravity="end"/>
+</LinearLayout>
