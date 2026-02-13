@@ -196,9 +196,11 @@ class TutorRegisterActivity : AppCompatActivity() {
         tutor.qualifications = qualifications
         tutor.experiences = experiences
 
+        // Inside TutorRegisterActivity.kt -> submitForm()
         lifecycleScope.launch {
             try {
-                val parts = buildTutorMultipart(tutor, imageUri!!, pdfUri!!)
+                // Pass "this" as the context, then the model and the two URIs
+                val parts = buildTutorMultipart(this@TutorRegisterActivity, tutor, imageUri!!, pdfUri!!)
                 val response = RetrofitClient.api.registerTutor(parts)
 
                 if (response.isSuccessful) {
