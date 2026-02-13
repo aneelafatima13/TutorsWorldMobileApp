@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tutorsworldmobileapp.models.Qualification
@@ -28,24 +29,52 @@ class QualificationAdapter(
     }
 
     override fun onBindViewHolder(holder: QualificationViewHolder, position: Int) {
-        val qualification = qualifications[position]
+        val qualification = qualifications[holder.adapterPosition]
 
-        holder.etInstitute.setText(qualification.institute)
-        holder.etDegree.setText(qualification.degree)
-        holder.etPassingYear.setText(qualification.passingYear)
-        holder.etPercentage.setText(qualification.percentage)
+        // Remove existing listeners to prevent "ghost" data updates
+        holder.etInstitute.text = null
+        holder.etInstitute.append(qualification.institute)
 
-        // Update model when user types
-        holder.etInstitute.addTextChangedListener { qualification.institute = it.toString() }
-        holder.etDegree.addTextChangedListener { qualification.degree = it.toString() }
-        holder.etPassingYear.addTextChangedListener { qualification.passingYear = it.toString() }
-        holder.etPercentage.addTextChangedListener { qualification.percentage = it.toString() }
+        // Use a simple listener that checks if the field has focus to avoid loop updates
+        holder.etInstitute.setOnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) qualification.institute = holder.etInstitute.text.toString()
+        }
 
-        // Remove item
+        holder.etPercentage.text = null
+        holder.etPercentage.append(qualification.percentage)
+
+        // Use a simple listener that checks if the field has focus to avoid loop updates
+        holder.etPercentage.setOnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) qualification.percentage = holder.etPercentage.text.toString()
+        }
+
+        holder.etDegree.text = null
+        holder.etDegree.append(qualification.degree)
+
+        // Use a simple listener that checks if the field has focus to avoid loop updates
+        holder.etDegree.setOnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) qualification.degree = holder.etDegree.text.toString()
+        }
+
+        holder.etPassingYear.text = null
+        holder.etPassingYear.append(qualification.passingYear)
+
+        // Use a simple listener that checks if the field has focus to avoid loop updates
+        holder.etPassingYear.setOnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) qualification.passingYear = holder.etPassingYear.text.toString()
+        }
+
+        // ... Repeat for other fields ...
+
         holder.btnRemove.setOnClickListener {
-            qualifications.removeAt(position)
-            notifyItemRemoved(position)
-            notifyItemRangeChanged(position, qualifications.size)
+            val currentPos = holder.adapterPosition
+            if (qualifications.size > 1) { // Optional: don't allow removing the last one
+                qualifications.removeAt(currentPos)
+                notifyItemRemoved(currentPos)
+                notifyItemRangeChanged(currentPos, qualifications.size)
+            } else {
+                Toast.makeText(holder.itemView.context, "At least one qualification required", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

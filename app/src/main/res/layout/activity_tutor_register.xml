@@ -2,14 +2,14 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <!-- TITLE -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -18,13 +18,13 @@
             android:textStyle="bold"
             android:layout_marginBottom="16dp" />
 
-        <!-- PERSONAL INFO -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Personal Info"
             android:textStyle="bold"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textColor="@android:color/black" />
 
         <EditText
             android:id="@+id/etFullName"
@@ -38,7 +38,6 @@
             android:layout_height="wrap_content"
             android:hint="CNIC (42101-XXXXXXX-X)" />
 
-        <!-- PROFILE IMAGE -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -61,7 +60,6 @@
             android:layout_height="wrap_content"
             android:text="Select Profile Image" />
 
-        <!-- RESUME -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -73,7 +71,8 @@
             android:id="@+id/tvResumeName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="No file selected" />
+            android:text="No file selected"
+            android:padding="4dp" />
 
         <Button
             android:id="@+id/btnPickResume"
@@ -81,22 +80,20 @@
             android:layout_height="wrap_content"
             android:text="Select Resume (PDF)" />
 
-        <!-- GENDER -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp" />
+
         <RadioGroup
             android:id="@+id/rgGender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Male" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Female" />
+            <RadioButton android:text="Male" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <RadioButton android:text="Female" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
         </RadioGroup>
 
         <EditText
@@ -111,7 +108,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Date of Birth"
-            android:focusable="false" />
+            android:focusable="false"
+            android:clickable="true" />
 
         <EditText
             android:id="@+id/etReligion"
@@ -125,22 +123,20 @@
             android:layout_height="wrap_content"
             android:hint="Nationality" />
 
-        <!-- MARITAL STATUS -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Marital Status"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp" />
+
         <RadioGroup
             android:id="@+id/rgMaritalStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Single" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Married" />
+            <RadioButton android:text="Single" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <RadioButton android:text="Married" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
         </RadioGroup>
 
         <EditText
@@ -165,50 +161,52 @@
             android:id="@+id/etSubjects"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Major Subjects"
-            android:minLines="3" />
+            android:hint="Major Subjects (Separated by commas)"
+            android:minLines="2" />
 
-        <!-- CONTACT INFO -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Contact Info"
             android:textStyle="bold"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:textColor="@android:color/black" />
 
         <EditText
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email" />
+            android:hint="Email"
+            android:inputType="textEmailAddress" />
 
         <EditText
             android:id="@+id/etPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Contact Number" />
+            android:hint="Contact Number"
+            android:inputType="phone" />
 
         <EditText
             android:id="@+id/etPAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Permanent Address"
-            android:minLines="3" />
+            android:hint="Permanent Address" />
 
         <EditText
             android:id="@+id/etTAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Temporary Address"
-            android:minLines="3" />
+            android:hint="Temporary Address" />
 
-        <!-- CREDENTIALS -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Credentials"
             android:textStyle="bold"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:textColor="@android:color/black" />
 
         <EditText
             android:id="@+id/etUsername"
@@ -223,133 +221,91 @@
             android:hint="Password"
             android:inputType="textPassword" />
 
-        <!-- FEE TYPE -->
-        <Spinner
-            android:id="@+id/spFeeType"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <!-- SUBMIT -->
-        <Button
-            android:id="@+id/btnSubmit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Submit Registration"
-            android:layout_marginTop="24dp" />
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Teaching Source"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
 
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/cbRemote"
-            android:text="Remote"/>
-
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/cbOnsite"
-            android:text="Onsite"/>
-
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/cbHybrid"
-            android:text="Hybrid"/>
+        <CheckBox android:id="@+id/cbRemote" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Remote"/>
+        <CheckBox android:id="@+id/cbOnsite" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Onsite"/>
+        <CheckBox android:id="@+id/cbHybrid" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Hybrid"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Classes You Can Teach"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:layout_marginTop="8dp" />
 
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/cbElementary"
-            android:text="Elementary"/>
+        <CheckBox android:id="@+id/cbElementary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Elementary"/>
 
         <LinearLayout
+            android:id="@+id/layoutElementary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/layoutElementary"
-            android:orientation="horizontal"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
             android:visibility="gone">
-
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Nursery"/>
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Prep"/>
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Playgroup"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/etExpYears"
-                android:hint="Experience Years"
-                android:inputType="number"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/etExpMonths"
-                android:hint="Experience Months"
-                android:inputType="number"/>
-
-            <!-- QUALIFICATIONS -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Qualifications"
-                android:textStyle="bold"
-                android:layout_marginTop="16dp"/>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvQualifications"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scrollbars="vertical"/>
-
-            <Button
-                android:id="@+id/btnAddQualification"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="+ Add Qualification"
-                android:layout_marginTop="8dp"/>
-
-            <!-- EXPERIENCE -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Experience"
-                android:textStyle="bold"
-                android:layout_marginTop="16dp"/>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvExperience"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scrollbars="vertical"/>
-
-            <Button
-                android:id="@+id/btnAddExperience"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="+ Add Experience"
-                android:layout_marginTop="8dp"/>
-
+            <CheckBox android:text="Nursery" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <CheckBox android:text="Prep" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <CheckBox android:text="Playgroup" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
         </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Qualifications"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:textColor="@android:color/black" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvQualifications"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false" />
+
+        <Button
+            android:id="@+id/btnAddQualification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+ Add Qualification"
+            style="?android:attr/borderlessButtonStyle"
+            android:textColor="@color/design_default_color_primary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Professional Experience"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:textColor="@android:color/black" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvExperience"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false" />
+
+        <Button
+            android:id="@+id/btnAddExperience"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+ Add Experience"
+            style="?android:attr/borderlessButtonStyle"
+            android:textColor="@color/design_default_color_primary" />
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit Registration"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="16dp" />
 
     </LinearLayout>
 </ScrollView>

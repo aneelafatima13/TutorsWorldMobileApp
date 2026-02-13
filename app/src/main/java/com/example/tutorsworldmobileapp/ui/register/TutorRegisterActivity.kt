@@ -67,6 +67,13 @@ class TutorRegisterActivity : AppCompatActivity() {
         btnPickImage.setOnClickListener { pickImage() }
         btnPickResume.setOnClickListener { pickPdf() }
 
+
+        if (qualifications.isEmpty()) {
+            qualifications.add(Qualification())
+        }
+        if (experiences.isEmpty()) {
+            experiences.add(Experience())
+        }
         // ---------- SETUP QUALIFICATIONS RECYCLER ----------
         qualificationAdapter = QualificationAdapter(qualifications)
         rvQualifications.layoutManager = LinearLayoutManager(this)
@@ -76,6 +83,8 @@ class TutorRegisterActivity : AppCompatActivity() {
             qualifications.add(Qualification())
             qualificationAdapter.notifyItemInserted(qualifications.size - 1)
         }
+
+
 
         // ---------- SETUP EXPERIENCE RECYCLER ----------
         experienceAdapter = ExperienceAdapter(experiences)
@@ -196,7 +205,6 @@ class TutorRegisterActivity : AppCompatActivity() {
         tutor.qualifications = qualifications
         tutor.experiences = experiences
 
-        // Inside TutorRegisterActivity.kt -> submitForm()
         lifecycleScope.launch {
             try {
                 // Pass "this" as the context, then the model and the two URIs
